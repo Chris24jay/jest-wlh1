@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as logic from './AppLogic';
 
 class App extends Component {
+  state = {
+    content: 'sup'
+  }
+  update = () => {
+    this.setState({
+      content: logic.update(2, 5)
+    })
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {this.state.content}
+        <button onClick={this.update}>Update</button>
       </div>
     );
   }
